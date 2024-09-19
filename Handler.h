@@ -44,7 +44,7 @@ class Handler{
                 }
             }
           
-            Complex result = c1 + c2;
+            Complex result = c1.operator+(c2);
 
             cout << "the sum is:" << result.get_real() << "+" << result.get_imaginary() << "i" << endl;
             
@@ -78,7 +78,7 @@ class Handler{
                    c2.set_imaginary(stoi(num2.substr(i+1, num2.length()-1)));
                 }
             }
-            Complex result = c1 - c2;
+            Complex result = c1.operator-(c2);
             if (result.get_imaginary() < 0)
             {
                 cout << "the difference is:" << result.get_real() << "-" << result.get_imaginary() << "i" << endl;
@@ -90,12 +90,116 @@ class Handler{
             }
         }
         static void multiply_two_complex_numbers(){
-            // To DOndl;
+            string num1, num2;
+            cout << "Enter the first number without spaces (for example: 2+3i): ";
+            cin >> num1;
+            cout << "Enter the second number without spaces (for example: 2+3i): ";
+            cin >> num2;
+            Complex c1, c2;
+
+            for (int i = 0; i < num1.length(); i++)
+            {
+                // keep iterating until we reach the plus sign, then the first half is the real numbers and the second half after the plus sign is the imaginary number
+                if (num1[i] == '+')
+                {
+                    c1.set_real(stoi(num1.substr(0, i)));
+                    c1.set_imaginary(stoi(num1.substr(i+1, num1.length()-1)));
+                }
+                
+            }
+            for (int i = 0; i < num2.length(); i++)
+            {
+                // keep iterating until we reach the plus sign, then the first half is the real numbers and the second half after the plus sign is the imaginary number
+                if (num2[i] == '+')
+                {
+                  //subtract the real numbers and the imaginary numbers from the first number
+                   c2.set_real(stoi(num2.substr(0, i)));
+                   c2.set_imaginary(stoi(num2.substr(i+1, num2.length()-1)));
+                }
+            }
+            Complex result = c1.operator*(c2);
+            if (result.get_imaginary() < 0)
+            {
+                cout << "the product is:" << result.get_real() << "-" << result.get_imaginary() << "i" << endl;
+            }
+            else
+            {
+                cout << "the product is:" << result.get_real() << "+" << result.get_imaginary() << "i" << endl;
+            
+            }
+
         }
         static void divide_two_complex_numbers(){
-            // To DO
+            string num1, num2;
+            cout << "Enter the first number without spaces (for example: 2+3i): ";
+            cin >> num1;
+            cout << "Enter the second number without spaces (for example: 2+3i): ";
+            cin >> num2;
+            Complex c1, c2;
+
+            for (int i = 0; i < num1.length(); i++)
+            {
+                // keep iterating until we reach the plus sign, then the first half is the real numbers and the second half after the plus sign is the imaginary number
+                if (num1[i] == '+')
+                {
+                    c1.set_real(stoi(num1.substr(0, i)));
+                    c1.set_imaginary(stoi(num1.substr(i+1, num1.length()-1)));
+                }
+                
+            }
+            for (int i = 0; i < num2.length(); i++)
+            {
+                // keep iterating until we reach the plus sign, then the first half is the real numbers and the second half after the plus sign is the imaginary number
+                if (num2[i] == '+')
+                {
+                  //subtract the real numbers and the imaginary numbers from the first number
+                   c2.set_real(stoi(num2.substr(0, i)));
+                   c2.set_imaginary(stoi(num2.substr(i+1, num2.length()-1)));
+                }
+            }
+            Complex result = c1.operator/(c2);
+            if (result.get_imaginary() < 0)
+            {
+                cout << "the quotient is:" << result.get_real() << "-" << result.get_imaginary() << "i" << endl;
+            }
+            else
+            {
+                cout << "the quotient is:" << result.get_real() << "+" << result.get_imaginary() << "i" << endl;
+            
+            }
+
+        
         }
         static void find_conjugate_of_a_complex_number(){
-            // To DO
+            Complex c1;
+            string num1;
+            cout << "Enter the number without spaces (for example: 2+3i): ";
+            cin >> num1;
+
+            for (int i = 0; i < num1.length(); i++)
+            {
+                //keep iterating until we reach the plus sign, then the first half is the real numbers and the second half after the plus sign is the imaginary number
+                if (num1[i] == '+' || num1[i] == '-')
+                {
+                    c1.set_real(stoi(num1.substr(0, i)));
+                    if(num1[i] == '-')
+                    {
+                        c1.set_imaginary(-1 * stoi(num1.substr(i+1, num1.length()-1)));
+                    }
+                    else
+                    {
+                    c1.set_imaginary(stoi(num1.substr(i+1, num1.length()-1)));
+                    }
+                }
+            }
+            Complex result = c1.conjugate();
+            if(result.get_imaginary() < 0)
+            {
+                cout << "the conjugate is:" << result.get_real() << result.get_imaginary() << "i" << endl;
+            }
+            else
+            {
+                cout << "the conjugate is:" << result.get_real() << "+" << result.get_imaginary() << "i" << endl;
+            }
         }
 };
