@@ -192,24 +192,29 @@ class Handler{
                 if (num1[i] == '+' || num1[i] == '-')
                     {
                         c1.set_real(stoi(num1.substr(0, i)));
+                    
                         if(num1[i] == '-')
                         {
                             if (num1[num1.length()-1] == 'i')
                             {
+                               
                                 c1.set_imaginary(-1);
                             }
                             else {
-                             c1.set_imaginary(-1 * stoi(num1.substr(i+2, num1.length())));
+                                c1.set_imaginary(-1 * stoi(num1.substr(i+2, num1.length())));
                             }
                         }
                         else if (num1[i] == '+')
                         {
-                            if (num1.length()-1 == 'i')
+
+
+                            if (num1[num1.length()-1] == 'i')
                             {
+                                
                                 c1.set_imaginary(1);
                             }
                             else {
-                            c1.set_imaginary( stoi(num1.substr(i+2, num1.length())));
+                            c1.set_imaginary(stoi(num1.substr(i+2, num1.length())));
                             }
                         }
                     }
@@ -247,11 +252,11 @@ class Handler{
             Complex result = c1.operator*(c2);
             if (result.get_imaginary() < 0)
                 {
-                    cout << "the product is:" << result.get_real() << "-i" << -1 * result.get_imaginary() << endl;
+                    cout << "the product is: " << result.get_real() << "-i" << -1 * result.get_imaginary() << endl;
                 }
             else
                 {
-                    cout << "the product is:" << result.get_real() << "+" << result.get_imaginary() << "i" << endl;
+                    cout << "the product is: " << result.get_real() << "+" << "i" << result.get_imaginary() << endl;
                 
                 }
 
@@ -333,11 +338,11 @@ class Handler{
              Complex result = c1.operator/(c2);
             if (result.get_imaginary() < 0)   
                 {
-                    cout << "the quotient is:" << result.get_real() << "-" << -1 * result.get_imaginary() << "i" << endl;
+                    cout << "the quotient is:" << result.get_real() << "-" << "i" << -1 * result.get_imaginary() << endl;
                 }
             else
                 {
-                    cout << "the quotient is:" << result.get_real() << "+" << result.get_imaginary() << "i" << endl;
+                    cout << "the quotient is:" << result.get_real() << "+" << "i" << result.get_imaginary() << endl;
                 
                 }
 
